@@ -1,0 +1,145 @@
+WSL + Ubuntu + Dev Environment Cheat Sheet
+
+My password is Gayatri$123 for Ubuntu super user i think. 
+
+claude can be launched from powershell by just typing claude
+
+
+
+==================== WSL (Windows PowerShell) ====================
+
+Check WSL status:
+wsl --status
+
+List distros + state + version:
+wsl -l -v
+
+Start WSL / Ubuntu:
+wsl
+wsl -d Ubuntu
+
+Shutdown WSL:
+wsl --shutdown
+
+
+==================== Ubuntu Basics ====================
+
+Confirm WSL:
+uname -a
+
+Show IP:
+hostname -I
+
+Open folder in Windows:
+explorer.exe .
+
+Open project folder:
+explorer.exe ~/smartomation
+
+
+==================== Access WSL from Windows ====================
+
+\\wsl$\Ubuntu\home\kumar\
+\\wsl$\Ubuntu\home\kumar\smartomation
+
+
+==================== PostgreSQL ====================
+
+Check service:
+service postgresql status
+
+Start:
+sudo service postgresql start
+
+Restart:
+sudo service postgresql restart
+
+Check port:
+ss -ltnp | grep 5432
+
+Test connection:
+pg_isready -h 127.0.0.1 -p 5432
+
+Open CLI:
+sudo -u postgres psql
+
+Set password:
+ALTER USER postgres WITH PASSWORD 'yourpassword';
+
+List DBs:
+\l
+
+List users:
+\du
+
+
+==================== MongoDB ====================
+
+Check service:
+service mongod status
+
+Start:
+sudo service mongod start
+
+Check port:
+ss -ltnp | grep 27017
+
+Open shell:
+mongosh
+
+
+==================== Node / Next.js ====================
+
+Check versions:
+node -v
+npm -v
+npx -v
+
+Install Node (NVM):
+nvm install --lts
+nvm use --lts
+
+Create Next app:
+npx create-next-app@latest smartomation
+
+Run app:
+cd smartomation
+npm run dev
+
+Open browser:
+http://localhost:3000
+
+
+==================== Connectivity ====================
+
+Windows test:
+Test-NetConnection -ComputerName localhost -Port 5432
+
+DBeaver config:
+Host: localhost
+Port: 5432
+User: postgres
+Password: yourpassword
+
+
+==================== Useful ====================
+
+Restart WSL:
+wsl --shutdown
+wsl
+
+Run env check:
+~/ai_env_check.sh
+
+My password is Gayatri$123 for Ubuntu super user i think. 
+
+
+==================== Rules ====================
+
+✔ Use WSL for code and DB
+✔ Use Windows for GUI tools
+✔ Use localhost for connections
+✘ Do not mix Windows + WSL Node
+
+
+END
